@@ -5,9 +5,14 @@ import React, { useState, useEffect } from 'react';
 const UseEffectBasics = () => {
   const [value, setValue] = useState(0);
   useEffect(() => {
-    // console.log('call useEffect');
+    console.log('call useEffect');
     if (value > 0) document.title = `New Messages(${value})`;
-  });
+  }, [value]);
+
+  //Run only in the initial render
+  useEffect(() => {
+    console.log('Run Initial Render');
+  }, []);
   return (
     <>
       <h1>{value}</h1>
